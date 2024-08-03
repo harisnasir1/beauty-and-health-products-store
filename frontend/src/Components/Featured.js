@@ -7,7 +7,7 @@ import axios from 'axios'
 import first from '../Utils/img/1.jpg'
 import second from '../Utils/img/2.jpg'
 import third from '../Utils/img/3.jpg'
-import Fade from "react-reveal/Fade"
+
 const Featured = () => {
  
 const [current,setcurrent]=useState(0);
