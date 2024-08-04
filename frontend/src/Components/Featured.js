@@ -20,7 +20,7 @@ const [current,setcurrent]=useState(0);
   return (
     <div className=' w-full h-fit lg:h-[70vh] md:h-[60vh] flex justify-center    text-white  '>
       
-        <img src={third} className=' bg-contain  h-full w-[80vw] mt-5'/>
+        <img src={third} className=' bg-contain  h-full w-full md:w-[90vw] mt-5'/>
        
     </div>
   )

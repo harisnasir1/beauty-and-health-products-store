@@ -15,14 +15,17 @@ const Categorise = () => {
     const [catimg,setcatimg]=useState([]);
     const [imguploaded,setimguploaded]=useState(false);
     const[Isuploading,SetIsUploading]=useState(false);
-
+    
     async function getcats()
     {
         console.log("i am here");
         axios.get(Getall_Categories)
         .then((res) => {
           console.log("data from server",res);
+          const d= res.data.result;
+          
           Setallcat(res.data.result);
+          SetparentCat(d[0].Catergoy_name)
         })
         .catch((e) => console.log("error is ", { e }));
     }
@@ -185,7 +188,6 @@ const Categorise = () => {
             SetparentCat(e.target.value);
         }}
       >
-        <option className=' cursor-pointer' value={undefined}>no parent Category </option>
         {  
        
         Allcat.map((cat, index) => { return !cat.parent&& cat.Catergoy_name!==Catname&& (
@@ -272,7 +274,6 @@ const Categorise = () => {
      SetparentCat(e.target.value);
  }}
 >
- <option className=' cursor-pointer' value={"no parent Category"}>no parent Category </option>
  {  
 
  Allcat.map((cat, index) => (

@@ -34,6 +34,9 @@ module.exports = {
 
       }
     },
+    fontFamily:{
+      GreatVibes:["Great Vibes","cursive"]
+    }
   },
   plugins: [
     function({ addUtilities }) {

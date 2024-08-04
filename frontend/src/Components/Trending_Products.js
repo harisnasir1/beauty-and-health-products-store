@@ -23,7 +23,7 @@ const Trending_Products = ({trendingproducts}) => {
   
     return (
       <div className="bg-blck mt-5 h-[430px] w-[100vw] overflow-hidden">
-        <div className="text-3xl md:text-4xl w-full text-start font-bold mt-5 flex justify-start ml-10 md:ml-44 capitalize ">
+        <div className="text-4xl md:text-5xl w-[80vw] text-center font-GreatVibes   font-bold mt-5 flex justify-center ml-1 md:ml-44 md:mr-4 capitalize ">
           Trending Products
         </div>
         <div className="w-[99%]  md:w-full flex justify-center items-center h-full p-2">

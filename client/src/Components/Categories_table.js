@@ -78,9 +78,7 @@ function rowContent(index, row, dele, navigate, update) {
           {column.dataKey === 'delete' ? (
             <button
               className="bg-red-500 text-white px-4 py-2 rounded ml-9"
-              onClick={() => {dele(row._id,Event)
-                toast("del");
-              }}
+              onClick={() => dele(row)}
             >
               Delete
             </button>
@@ -102,7 +100,7 @@ function rowContent(index, row, dele, navigate, update) {
   );
 }
 
-export default function ReactVirtualizedTable({ Allcat, Catname, getcategory ,del}) {
+export default function ReactVirtualizedTable({ Allcat, Catname, getcategory, del }) {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
 
@@ -127,17 +125,22 @@ export default function ReactVirtualizedTable({ Allcat, Catname, getcategory ,de
     getdata();
   }, [Allcat, Catname]);
 
-  const showtoast=()=>{
-    toast("del")
-  }
-  const dele = async (id,e) => {
-   
-        await del(id);
-    getdata();
+  const dele = async (row) => {
+    if (!row.parent) {
+      toast("You cannot delete parent categories");
+      return;
+    }
+    try {
+      await del(row._id);
+      getdata();
+    } catch (error) {
+      console.error("Error deleting category:", error);
+    }
   };
 
   return (
     <>
+      <ToastContainer />
       <Paper style={{ height: '100%', width: '100%' }}>
         <TableVirtuoso
           data={data}
