@@ -7,6 +7,7 @@ const Main = ({children}) => {
     const navigate=useNavigate();
     
     const [navtoggle,setnavtoggle]=useState(false);
+    const [allset,setallset]=useState(false)
     const [currentuser,setcurrentuser]=useState(() => {
         // getting stored value
         const saved =  localStorage.getItem('e-app-users');
@@ -17,13 +18,21 @@ const Main = ({children}) => {
         if(!localStorage.getItem("e-app-users"))
           {
           navigate("/");
+          setallset(false);
+          }
+          else{
+            setallset(true);
           }
       })
-      return (
-        <div className=' bg-white min-h-screen flex'>
+      return (<>
+
+        { allset &&<div className=' bg-white min-h-screen flex'>
+
           <Nav/>
           <div className=' bg-  text-black bg-white flex-grow mt-3 mr-4 mb-4 rounded-xl overflow-y-auto'> {children}</div>
-        </div>
+     
+        </div>}
+        </>
       );
 };
 

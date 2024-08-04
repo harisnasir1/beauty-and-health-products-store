@@ -68,7 +68,7 @@ const Signup = () => {
    }
   
   return (
-    <>
+ <>
     <div className=' bg-custom-gray w-[100vw] h-[100vh] flex justify-center items-center'>
       <div className='w-[54vw] h-[73vh] bg-custom-black rounded-lg flex flex-col justify-center items-center'>
       

@@ -14,8 +14,10 @@ import Home_customization from './Components/Home_customization.jsx'
 function App() {
   return (
     
-   <BrowserRouter>
-   
+    <BrowserRouter>
+    <Routes>    <Route path='/' element={<Login/>}/>
+    <Route path='/Signup' element={<Signup/>}/>
+</Routes>
    <Main>
    <Routes>
    <Route path='/Allorders' element={<Allorders/ >}/>
@@ -24,7 +26,7 @@ function App() {
     <Route path='/Update/:id' element={<Update/>}/>
     <Route path='/Categorise' element={<Categorise/>}/>
     <Route path='/Properties' element={<Properties/>}/>
-    <Route path='/' element={<Home_customization/>}/>
+    <Route path='/Home_customization' element={<Home_customization/>}/>
 
    
 
